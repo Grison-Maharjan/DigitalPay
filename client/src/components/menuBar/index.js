@@ -23,7 +23,9 @@ export default function menuBar(){
         <button className='m-3 p-3 bg-purple-300 rounded-2xl'>Home</button>
         <button className='m-3 p-3 bg-purple-300 rounded-2xl'
                 onClick={()=> router.push('/profile')}
-        >Profile</button>
+        >
+            Profile
+        </button>
         <button className='m-3 p-3 bg-purple-300 rounded-2xl'>Save</button>
         <button className='m-3 p-3 bg-purple-300 rounded-2xl'>Setting</button>
     </div>

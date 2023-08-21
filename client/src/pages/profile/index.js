@@ -29,15 +29,6 @@ const userProfile = () => {
     })
     }
 
-    const [open, setOpen] = useState(false);
-    const handleOpen = () => {
-        setOpen(true);
-
-    };
-    // const handleClose = () => {
-    //     setOpen(false);
-    // };
-
     return(
     <>
     {/* Whole Page */}
@@ -102,8 +93,7 @@ const userProfile = () => {
                         {errors.password && touched.password ? <div>{errors.password}</div> : null}
                     </div>
                     <div>
-                        <button onClick={handleOpen}>Change Password
-                        </button>
+                       <NewPassword/>
                     </div>
                 </div>
 
