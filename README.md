@@ -1,23 +1,28 @@
 # DigitalPay
 
 ## Features
-- [ ] Creating new account
-- [ ] Login to alreading existing account
-- [ ] Token provided
+- [x] Creating new account
+- [x] Login to alreading existing account
+- [ ] Log Out 
+- [x] Token provided
 - [ ] Transaction history
 - [ ] MPIN 
 - [ ] Receiving/Sending money
 - [ ] Service charges(5%) while sending money
 - [ ] Load money 
 - [ ] Electricity/Topup (optional)
+- [ ] Update users details
+- [ ] Delete user account
+
 
 ## Pages
-
-- [ ] Landing page
-- [ ] Log In page (user already exist)
-- [ ] Sign Up page (new user account creation)
+- [x] Landing page
+- [x] Log In page (user already exist)
+- [x] Sign Up page (new user account creation)
 - [ ] User home page
 - [ ] User profile page 
-- [ ] Transaction history (popup)
+- [ ] Transaction history (side bar)
+- [ ] Save [Important transaction saves]
+- [ ] Setting Page 
 - [ ] Electricity/Topup page(optional)
  

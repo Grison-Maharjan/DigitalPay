@@ -1,10 +1,13 @@
 import React from 'react'
 import IMAGE from 'next/image'
 import Link  from 'next/link';
+import { useRouter } from 'next/router'
 
-const frontPage = () => (
-    <>
-    <div className="bg-cover bg-center w-full h-screen fixed" style={{ backgroundImage: `url('/LandingPg-Bg.png')` }}>
+const frontPage = () => {
+    const router = useRouter()
+
+    return (<>
+    <div className="bg-cover bg-center w-full h-screen fixed" style={{ backgroundImage: `url('/LandingBg.png')` }}>
       <header className='bg-transparent'>
         <nav className='flex justify-between content-center p-1'>
             <div className='flex'>
@@ -12,7 +15,7 @@ const frontPage = () => (
                 <div className='p-4 font-semibold text-indigo-100'>DigitalPay</div>
             </div>
             <div className='p-4 font-medium text-indigo-700'>
-                <Link href='/landingPage' className='mx-2'>
+                <Link href='/' className='mx-2'>
                     Home
                 </Link>
                 <Link href='/' className='mx-2'>
@@ -44,7 +47,7 @@ const frontPage = () => (
                     <li className='list-disc'>Simple interface for easy use</li>
                 </ul>
             <div className='flex justify-center '>
-            <button href = ''
+            <button onClick={()=> router.push('/login')}
             className='border-2 border-indigo-600 bg-indigo-600 py-4 px-10 text-indigo-100 rounded-md m-5 opacity-70 hover:opacity-100'
             >
                 Get Started!</button>
@@ -55,7 +58,7 @@ const frontPage = () => (
     {/* <div>
         Contact
     </div> */}
-    </>
-);
+    </>)
+};
  
 export default frontPage;

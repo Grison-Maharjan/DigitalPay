@@ -1,7 +1,7 @@
 import React from 'react'
 import { Formik, Form, Field } from 'formik';
-import IMAGE from 'next/image';
 import * as Yup from 'yup';
+import IMAGE from 'next/image';
 import { setUserDetails } from '../../redux/reducerSlices/userSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router';
@@ -38,8 +38,7 @@ const Login = () => {
 		}
 	}
 
-  return( 
-  <div className='flex justify-center content-center bg-cover bg-center h-screen backdrop-blur-sm' style={{ backgroundImage: `url('/Login-Bg.png')`}} >
+  return( <div className='flex justify-center content-center bg-cover bg-center h-screen backdrop-blur-sm' style={{ backgroundImage: `url('/Login-Bg.png')`}} >
     <div className='flex w-full m-14 rounded-lg	bg-cover bg-center'  style={{ backgroundImage: `url('/Co-LoginBg.png')`}} >
       <div className='flex justify-center w-1/2'>
       <Formik
@@ -58,10 +57,10 @@ const Login = () => {
               Log In
             </h1><br/>
            <lable className='text-indigo-200 font-semibold'>Phone Number</lable><br/>
-            <Field name="phoneNumber" type="text" className='bg-transparent text-indigo-200 border-b-2 border-indigo-500 focus:border-indigo-100 outline-none text-xl p-1'/>
+            <Field name="phoneNumber" type="text" className='bg-transparent text-indigo-300 border-b-2 border-indigo-500 focus:border-indigo-100 outline-none text-xl p-1'/>
             {errors.phoneNumber && touched.phoneNumber ? <div>{errors.phoneNumber}</div> : null}<br/><br/>
             <lable className='text-indigo-200 font-semibold'>Password</lable><br/>
-            <Field name="password" type="password" className='bg-transparent text-indigo-200 border-b-2 border-indigo-500 focus:border-indigo-100 outline-none text-xl p-1'/>
+            <Field name="password" type="password" className='bg-transparent text-indigo-300 border-b-2 border-indigo-500 focus:border-indigo-100 outline-none text-xl p-1'/>
             {errors.password && touched.password ? <div>{errors.password}</div> : null}<br/><br/>
             <button type="submit" className='w-full py-2 border-2 border-indigo-600 bg-indigo-600 text-indigo-100 font-semibold rounded-md opacity-80 hover:opacity-100'>Submit</button>
           </Form>

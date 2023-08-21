@@ -1,7 +1,7 @@
 import { Inter } from 'next/font/google'
-import Login from './login'
+import LandingPage from './landingPage'
 import Home from './homePage'
-import { UseSelector, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 const inter = Inter({subsets: ['latin']})
 
@@ -11,6 +11,6 @@ export default function Main() {
         return <Home/>
     }
     else{
-        return <Login/>
+        return <LandingPage/>
     }
 }
