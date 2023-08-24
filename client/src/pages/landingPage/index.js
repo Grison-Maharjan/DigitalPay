@@ -11,7 +11,7 @@ const frontPage = () => {
       <header className='bg-transparent'>
         <nav className='flex justify-between content-center p-1'>
             <div className='flex'>
-                <IMAGE src='/DigitalPay-logo.jpeg' width={50} height={50} alt='DigitalPay' className='rounded-full'/>
+                <IMAGE src='/DigitalPay-logo.png' width={50} height={50} alt='DigitalPay' className='rounded-full'/>
                 <div className='p-4 font-semibold text-indigo-100'>DigitalPay</div>
             </div>
             <div className='p-4 font-medium text-indigo-700'>

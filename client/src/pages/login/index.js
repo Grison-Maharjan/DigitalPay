@@ -1,7 +1,6 @@
 import React from 'react'
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import IMAGE from 'next/image';
 import { setUserDetails } from '../../redux/reducerSlices/userSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router';
@@ -72,9 +71,6 @@ const Login = () => {
       <div className='text-center w-1/2'>
         <h3 className='text-4xl my-6'>Welcome Back!</h3>
         <p className='text-5xl'>Login to get back to transaction.</p>
-        <div className='flex justify-center m-8'>
-          <IMAGE src='/USD.png' width={250} height={120} alt='USD' className='rounded-lg'/>
-        </div>
       </div>
     </div>
   </div>)

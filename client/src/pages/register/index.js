@@ -69,9 +69,6 @@ const Register = () => {
     <div className='text-center w-1/2'>
       <h3 className='text-4xl my-6'>Welcome to DigitalPay!</h3>
       <p className='text-5xl'>Sign Up to transact in modern way.</p>
-      <div className='flex justify-center m-8'>
-        <IMAGE src='/NRS.png' width={250} height={50} alt='NR' className='rounded-lg'/>
-      </div>
     </div>
    </div>
   </div>)

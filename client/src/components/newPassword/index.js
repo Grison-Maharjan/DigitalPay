@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 
-export default function menuBar(){
+export default function newPassword(){
     
     const passwordSchema = Yup.object().shape({
         password: Yup.string()

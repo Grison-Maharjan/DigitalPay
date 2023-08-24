@@ -47,7 +47,8 @@ export default function menuBar(){
                     Cancel
                 </button>
                 <button
-                    onClick={() => dispatch(handleLogout())}
+                    onClick={() => {dispatch(handleLogout())
+                        router.push('/')}}
                     className="px-4 py-2 text-white bg-indigo-600 hover:bg-indigo-700 rounded"
                 >
                     Log Out
