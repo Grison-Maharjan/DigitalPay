@@ -42,6 +42,41 @@ const userLogin = async (req,res) => {
         })
     }
 }
+
+// const changePassword = async(req,res)=>{
+//     try{
+//         const userId = req.params.userId;
+//         const user = await Users.findById(userId)
+        
+//         const matched = await bcrypt.compare(
+//             req.body.passwordCurrent,
+//             user.password
+//         );
+      
+//         if (matched) {
+//             const hashedPassword = await bcrypt.hash(req.body.newPassword, 10);
+//             req.body.password = hashedPassword;
+//             const updatePassword = await Users.findByIdAndUpdate(
+//                  userId, { password: req.body.password },
+//             )
+      
+//             if (updatePassword) {
+//               res.status(200).json({
+//                 success: true,
+//                 message: "Successfully changed password"
+//               });
+//             } 
+//           } else {
+//             return res.status(401).json({
+//               success: false,
+//               message: "Your old password is wrong!",
+//             });
+//           }
+//     }catch(err){
+//         console.log(err.message)
+//     }
+// }
+
 // const getAllUser = async(req,res)=>{
 // const data = await Users.find(req.body)
 //     res.json({
@@ -66,12 +101,5 @@ const userLogin = async (req,res) => {
 //     })
 // }
  
-// const updateSpecificUser = async(req,res)=>{
-// const data = await Users.findByIdAndUpdate(req.params.id, req.body)
-//     res.json({
-//         msg: 'success',
-//         data: data
-//     })
-// }
 
 module.exports = {registerNewUser, userLogin}

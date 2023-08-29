@@ -18,7 +18,15 @@ const UserSlice = createSlice({
             userDetails: actions.payload.userDetails,
         }
     },
-    handleLogout: (state, action) =>{
+
+    // updatedUserDetails: (state, actions) => {
+    //     return {
+    //         ...state,
+    //         userDetails: actions.payload.userDetails,
+    //     };
+    // },
+
+    handleLogout: () =>{
         return initialState
     }
  }

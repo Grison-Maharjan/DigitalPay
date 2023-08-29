@@ -3,7 +3,7 @@
 ## Features
 - [x] Creating new account
 - [x] Login to alreading existing account
-- [ ] Log Out 
+- [x] Log Out 
 - [x] Token provided
 - [ ] Transaction history
 - [ ] MPIN 

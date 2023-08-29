@@ -21,14 +21,6 @@ const SignupSchema = Yup.object().shape({
 
 const userProfile = () => {  
 
-    const updateUser = async (values) => {
-    await fetch('http://localhost:8080/registers', 
-    { method: 'PUT',
-        body: JSON.stringify(values),
-        headers: { 'Content-Type': 'application/json' },
-    })
-    }
-
     return(
     <>
     {/* Whole Page */}
@@ -68,7 +60,11 @@ const userProfile = () => {
 
                     <div>
                         <lable className='text-indigo-200 font-semibold'>Gender</lable><br/>
-                        <Field name="gender" type="radio" />
+                        <div className='flex'>
+                            <div><Field name="gender" type="radio" />Male</div>
+                            <div className='mx-4'><Field name="gender" type="radio" />Female</div>
+                            <div><Field name="gender" type="radio" />Others</div>
+                        </div>
                         {errors.gender && touched.gender ? <div>{errors.gender}</div> : null}
                     </div>
                 </div>
@@ -97,7 +93,7 @@ const userProfile = () => {
                     </div>
                 </div>
 
-                <button type="submit" className='w-full py-2 border-2 border-indigo-600 bg-indigo-600 text-indigo-100 font-semibold rounded-md opacity-80 hover:opacity-100'>Submit</button>
+                <button type="submit" className='w-40 py-2 border-2 border-indigo-600 bg-indigo-600 text-indigo-100 font-semibold rounded-md opacity-80 hover:opacity-100'>Save</button>
                 </Form>
         )}
             </Formik>
