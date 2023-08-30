@@ -41,7 +41,7 @@ const Login = () => {
 
   return( 
   <div className='flex flex-col justify-center content-center bg-cover bg-center h-screen backdrop-blur-sm' style={{ backgroundImage: `url('/LoginBg.png')`}} >
-    <div className='flex m-10 mb-4 rounded-lg	bg-center rounded-xl bg-tuna-900 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-satinLinen-500' >
+    <div className='flex m-10 mb-4 	bg-center rounded-xl bg-tuna-900 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-satinLinen-500' >
       <div className='flex justify-center w-1/2 border-r-2 border-tuna-200'>
         <Formik
         initialValues={{
@@ -76,10 +76,11 @@ const Login = () => {
         <h3 className='text-5xl my-6'>Welcome Back!</h3>
         <p className='text-4xl m-4'>Hey there! We're thrilled to have you back on our online cash app. Let's get started!</p>
         <div className='flex justify-center my-10'>
-          <Image src='/LoginPic.png' width={300} height={300} alt='LoginPic'/>
+          <Image src='/LoginPics.gif' width={260} height={260} alt='LoginPic'/>
         </div>
       </div>
     </div>
+
     <h1 className='flex justify-center text-tuna-950 font-semibold mb-4'>Don't have an account?<Link href='/register' className='mx-2 rounded bg-tuna-900 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-satinLinen-500'> Sign Up</Link></h1>
   </div>)
 };

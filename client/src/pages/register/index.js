@@ -1,21 +1,22 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import IMAGE from 'next/image'
+import Link  from 'next/link';
+import Image from 'next/image';
  
 const SignupSchema = Yup.object().shape({
    fullName: Yup.string()
       .min(2, 'Too Short!')
       .max(50, 'Too Long!')
-      .required('Required'),
+      .required('Required!!!'),
    phoneNumber: Yup.string()
       .min(10, 'Too Short!')
       .max(15, 'Too Long!')
-      .required('Required'),
+      .required('Required!!!'),
    password: Yup.string()
       .min(7, 'Too Short!')
       .max(20, 'Too Long!')
-      .required('Required'),
+      .required('Required!!!'),
 });
  
 const Register = () => {
@@ -29,48 +30,54 @@ const Register = () => {
 }
 
   return (
-   <div className='flex justify-center content-center bg-cover bg-center h-screen backdrop-blur-sm' style={{ backgroundImage: `url('/Signup-Bg.png')`}} >
-    <div className='flex w-full m-14 rounded-lg	bg-cover bg-center'  style={{ backgroundImage: `url('Co-SignupBg.png')`}} >
-    <div className='flex justify-center w-1/2'>
-      <Formik
-       initialValues={{
-         fullName: '',
-         phoneNumber: '',
-         password: ''
-       }}
-      validationSchema={SignupSchema}
+   <div className='flex flex-col justify-center content-center bg-cover bg-center h-screen' style={{ backgroundImage: `url('/SignupBg.png')`}} >
+    <div className='flex m-10 mb-4 bg-center rounded-xl bg-tuna-900 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-satinLinen-500'>
+      <div className='text-center text-tuna-900 w-1/2 border-r-2 border-tuna-200'>
+        <h3 className='text-4xl my-6'>Welcome to DigitalPay!</h3>
+        <p className='text-4xl m-4'>Hey there! Ready to join our online cash app? Sign up now and start using it!</p>
+        <div className='flex justify-center my-2'>
+          <Image src='/SignUpPics.gif' width={320} height={320} alt='LoginPic'/>
+        </div>
+      </div>
 
-      onSubmit={values => {
-        registerNewUser(values)
-       }}
-     >
-       {({ errors, touched }) => (
-         <Form className='m-10'>
-          <h1 className='text-center text-3xl font-semibold text-tuna-300'>Sign Up</h1><br/>
+      <div className='flex justify-center w-1/2 '>
+        <Formik
+        initialValues={{
+          fullName: '',
+          phoneNumber: '',
+          password: ''
+        }}
+        validationSchema={SignupSchema}
 
-          <lable className='text-tuna-200 font-semibold'>Full Name</lable><br/>
-           <Field name="fullName" type="text" className='bg-transparent text-tuna-300 border-b-2 border-tuna-500 focus:border-tuna-100 outline-none text-base p-1'/>
-           {errors.fullName && touched.fullName ? (<div>{errors.fullName}</div>) : null}<br/><br/>
+        onSubmit={values => {
+          registerNewUser(values)
+        }}
+      >
+        {({ errors, touched }) => (
+          <Form className='m-10'>
+            <h1 className='text-center text-3xl font-semibold text-tuna-950'>
+              Sign Up
+            </h1><br/>
 
-          <lable className='text-tuna-200 font-semibold'>Phone Number</lable><br/>
-           <Field name="phoneNumber" type="text" className='bg-transparent text-tuna-300 border-b-2 border-tuna-500 focus:border-tuna-100 outline-none text-base p-1'/>
-           {errors.phoneNumber && touched.phoneNumber ? <div>{errors.phoneNumber}</div> : null}<br/><br/>
-           
-           <lable className='text-tuna-200 font-semibold'>Password</lable><br/>
-           <Field name="password" type="password" className='bg-transparent text-tuna-300 border-b-2 border-tuna-500 focus:border-tuna-100 outline-none text-base p-1'/>
-           {errors.password && touched.password ? <div>{errors.password}</div> : null}<br/><br/>
-           
-           <button type="submit" className='w-full py-2 border-2 border-tuna-600 bg-tuna-600 text-tuna-100 font-semibold rounded-md opacity-80 hover:opacity-100'>Submit</button>
-         </Form>
-       )}
-     </Formik>
-    </div>
+            <lable className='text-tuna-900 font-semibold'>Full Name</lable><br/>
+            <Field name="fullName" type="text" className='bg-transparent text-tuna-950 border-b-2 border-tuna-400 focus:border-tuna-950 outline-none text-base p-1'/>
+            {errors.fullName && touched.fullName ? <div className='text-satinLinen-400'>{errors.fullName}</div> : null}<br/><br/>
 
-    <div className='text-center w-1/2'>
-      <h3 className='text-4xl my-6'>Welcome to DigitalPay!</h3>
-      <p className='text-5xl'>Sign Up to transact in modern way.</p>
-    </div>
+            <lable className='text-tuna-900 font-semibold'>Phone Number</lable><br/>
+            <Field name="phoneNumber" type="text" className='bg-transparent text-tuna-950 border-b-2 border-tuna-400 focus:border-tuna-950 outline-none text-base p-1'/>
+            {errors.phoneNumber && touched.phoneNumber ? <div className='text-satinLinen-400'>{errors.phoneNumber}</div> : null}<br/><br/>
+            
+            <lable className='text-tuna-900 font-semibold'>Password</lable><br/>
+            <Field name="password" type="password" className='bg-transparent text-tuna-950 border-b-2 border-tuna-400 focus:border-tuna-950 outline-none text-base p-1'/>
+            {errors.password && touched.password ? <div className='text-satinLinen-400'>{errors.password}</div> : null}<br/><br/>
+            
+            <button type="submit" className='w-full py-2 border-2 border-tuna-600 bg-tuna-600 text-tuna-100 font-semibold rounded-md opacity-80 hover:opacity-100'>Submit</button>
+          </Form>
+        )}
+      </Formik>
+      </div>
    </div>
+   <h1 className='flex justify-center text-tuna-950 font-semibold mb-4'>Already have an account?<Link href='/login' className='mx-2 rounded bg-tuna-900 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-satinLinen-500'> Log In</Link></h1>
   </div>)
 };
 

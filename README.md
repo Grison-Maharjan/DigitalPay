@@ -28,8 +28,8 @@
  
 ## Theme color
 
-Tuna
-Celery
-Rum Swizzle
-Satin Linen 
+- Tuna
+- Celery
+- Rum Swizzle
+- Satin Linen 
 
