@@ -14,6 +14,8 @@ module.exports = {
       },
     },
     colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
       'tuna': {
         50: '#f5f5f6',
         100: '#e5e6e8',

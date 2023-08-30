@@ -49,7 +49,7 @@ export default function menuBar(){
                 <button
                     onClick={() => {dispatch(handleLogout())
                         router.push('/')}}
-                    className="px-4 py-2 text-white bg-indigo-600 hover:bg-indigo-700 rounded"
+                    className="px-4 py-2 text-white bg-tuna-600 hover:bg-tuna-700 rounded"
                 >
                     Log Out
                 </button>

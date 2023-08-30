@@ -58,18 +58,18 @@ export default function newPassword(){
         <Box className="flex flex-col items-center justify-center h-screen">
             <div className="flex flex-col border rounded-lg p-8 bg-green-500">
                 <button onClick={handleClose} className='text-white mb-2'>X</button>
-                <lable className='text-indigo-200 font-semibold'>Old Password</lable><br/>
-                <Field name="password" type="password" className='bg-transparent text-indigo-300 border-b-2 border-indigo-100 focus:border-indigo-500 outline-none text-base p-1'/>
+                <lable className='text-tuna-200 font-semibold'>Old Password</lable><br/>
+                <Field name="password" type="password" className='bg-transparent text-tuna-300 border-b-2 border-tuna-100 focus:border-tuna-500 outline-none text-base p-1'/>
 
-                <lable className='text-indigo-200 font-semibold'>New Password</lable><br/>
-                <Field name="newPassword" type="password" className='bg-transparent text-indigo-300 border-b-2 border-indigo-100 focus:border-indigo-500 outline-none text-base p-1'/>
+                <lable className='text-tuna-200 font-semibold'>New Password</lable><br/>
+                <Field name="newPassword" type="password" className='bg-transparent text-tuna-300 border-b-2 border-tuna-100 focus:border-tuna-500 outline-none text-base p-1'/>
                 {errors.newPassword && touched.newPassword ? <div>{errors.newPassword}</div> : null}
 
-                <lable className='text-indigo-200 font-semibold'>Confirm New Password</lable><br/>
-                <Field name="confirmPassword" type="password" className='bg-transparent text-indigo-300 border-b-2 border-indigo-100 focus:border-indigo-500 outline-none text-base p-1'/>
+                <lable className='text-tuna-200 font-semibold'>Confirm New Password</lable><br/>
+                <Field name="confirmPassword" type="password" className='bg-transparent text-tuna-300 border-b-2 border-tuna-100 focus:border-tuna-500 outline-none text-base p-1'/>
                 {errors.confirmPassword && touched.confirmPassword ? <div>{errors.confirmPassword}</div> : null}
 
-                <button className='w-full py-1 mt-2 border-2 border-indigo-600 bg-indigo-600 text-indigo-100 font-semibold rounded-md opacity-80 hover:opacity-100'>Confirm</button>
+                <button className='w-full py-1 mt-2 border-2 border-tuna-600 bg-tuna-600 text-tuna-100 font-semibold rounded-md opacity-80 hover:opacity-100'>Confirm</button>
             </div>
         </Box>
         </Modal>

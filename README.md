@@ -26,3 +26,10 @@
 - [ ] Setting Page 
 - [ ] Electricity/Topup page(optional)
  
+## Theme color
+
+Tuna
+Celery
+Rum Swizzle
+Satin Linen 
+
