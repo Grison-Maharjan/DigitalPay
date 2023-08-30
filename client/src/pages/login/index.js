@@ -37,8 +37,8 @@ const Login = () => {
 		}
 	}
 
-  return( <div className='flex justify-center content-center bg-cover bg-center h-screen backdrop-blur-sm' style={{ backgroundImage: `url('/Login-Bg.png')`}} >
-    <div className='flex w-full m-14 rounded-lg	bg-cover bg-center'  style={{ backgroundImage: `url('/Co-LoginBg.png')`}} >
+  return( <div className='flex justify-center content-center bg-cover bg-center h-screen backdrop-blur-sm' style={{ backgroundImage: `url('/LoginBg.png')`}} >
+    <div className='flex w-full m-14 rounded-lg	bg-cover bg-center rounded-xl bg-tuna-900 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-satinLinen-500' >
       <div className='flex justify-center w-1/2'>
       <Formik
         initialValues={{
