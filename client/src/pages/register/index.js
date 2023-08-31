@@ -5,15 +5,21 @@ import Link  from 'next/link';
 import Image from 'next/image';
  
 const SignupSchema = Yup.object().shape({
-   fullName: Yup.string()
+    fullName: Yup.string()
       .min(2, 'Too Short!')
       .max(50, 'Too Long!')
       .required('Required!!!'),
-   phoneNumber: Yup.string()
+    email: Yup.string()
+      .min(10, 'Too Short!')
+      .max(50, 'Too Long!')
+      .required('Required!!!'),
+    phoneNumber: Yup.string()
       .min(10, 'Too Short!')
       .max(15, 'Too Long!')
       .required('Required!!!'),
-   password: Yup.string()
+    gender: Yup.string()
+      .required('Required!!!'),
+    password: Yup.string()
       .min(7, 'Too Short!')
       .max(20, 'Too Long!')
       .required('Required!!!'),
@@ -31,7 +37,7 @@ const Register = () => {
 
   return (
    <div className='flex flex-col justify-center content-center bg-cover bg-center h-screen' style={{ backgroundImage: `url('/SignupBg.png')`}} >
-    <div className='flex m-10 mb-4 bg-center rounded-xl bg-tuna-900 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-satinLinen-500'>
+    <div className='flex h-[80vh] m-10 mb-4 bg-center rounded-xl bg-tuna-900 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-satinLinen-500'>
       <div className='text-center text-tuna-900 w-1/2 border-r-2 border-tuna-200'>
         <h3 className='text-4xl my-6'>Welcome to DigitalPay!</h3>
         <p className='text-4xl m-4'>Hey there! Ready to join our online cash app? Sign up now and start using it!</p>
@@ -40,12 +46,14 @@ const Register = () => {
         </div>
       </div>
 
-      <div className='flex justify-center w-1/2 '>
+      <div className='flex justify-center w-1/2 overflow-y-scroll'>
         <Formik
         initialValues={{
           fullName: '',
+          email: '',
           phoneNumber: '',
-          password: ''
+          gender: '',
+          password: '',
         }}
         validationSchema={SignupSchema}
 
@@ -63,15 +71,27 @@ const Register = () => {
             <Field name="fullName" type="text" className='bg-transparent text-tuna-950 border-b-2 border-tuna-400 focus:border-tuna-950 outline-none text-base p-1'/>
             {errors.fullName && touched.fullName ? <div className='text-satinLinen-400'>{errors.fullName}</div> : null}<br/><br/>
 
+            <lable className='text-tuna-900 font-semibold'>Email</lable><br/>
+            <Field name="email" type="email" className='bg-transparent text-tuna-950 border-b-2 border-tuna-400 focus:border-tuna-950 outline-none text-base p-1'/>
+            {errors.email && touched.email ? <div className='text-satinLinen-400'>{errors.email}</div> : null}<br/><br/>
+
             <lable className='text-tuna-900 font-semibold'>Phone Number</lable><br/>
             <Field name="phoneNumber" type="text" className='bg-transparent text-tuna-950 border-b-2 border-tuna-400 focus:border-tuna-950 outline-none text-base p-1'/>
             {errors.phoneNumber && touched.phoneNumber ? <div className='text-satinLinen-400'>{errors.phoneNumber}</div> : null}<br/><br/>
             
+            <lable className='text-tuna-900 font-semibold'>Gender</lable><br/>                        
+            <div className='flex justify-between'>
+              <Field name="gender" type="radio" value="male"/>Male
+              <Field name="gender" type="radio" value="female"/>Female
+              <Field name="gender" type="radio" value="others"/>Others
+            </div>
+            {errors.gender && touched.gender ? <div>{errors.gender}</div> : null}<br/>
+
             <lable className='text-tuna-900 font-semibold'>Password</lable><br/>
             <Field name="password" type="password" className='bg-transparent text-tuna-950 border-b-2 border-tuna-400 focus:border-tuna-950 outline-none text-base p-1'/>
             {errors.password && touched.password ? <div className='text-satinLinen-400'>{errors.password}</div> : null}<br/><br/>
             
-            <button type="submit" className='w-full py-2 border-2 border-tuna-600 bg-tuna-600 text-tuna-100 font-semibold rounded-md opacity-80 hover:opacity-100'>Submit</button>
+            <button type="submit" className='w-full mb-2 py-2 border-2 border-tuna-600 bg-tuna-600 text-tuna-100 font-semibold rounded-md opacity-80 hover:opacity-100'>Submit</button>
           </Form>
         )}
       </Formik>
@@ -81,4 +101,4 @@ const Register = () => {
   </div>)
 };
 
- export default Register
+export default Register
