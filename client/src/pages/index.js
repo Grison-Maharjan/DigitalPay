@@ -1,6 +1,6 @@
 import { Inter } from 'next/font/google'
 import LandingPage from './landingPage'
-import Home from './homePage'
+import Home from './home'
 import { useSelector } from 'react-redux'
 
 const inter = Inter({subsets: ['latin']})

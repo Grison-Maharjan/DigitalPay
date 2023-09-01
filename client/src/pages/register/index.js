@@ -46,7 +46,7 @@ const Register = () => {
         </div>
       </div>
 
-      <div className='flex justify-center w-1/2 overflow-y-scroll'>
+      <div className='flex justify-center w-1/2 overflow-y-scroll scrollbar-thin scrollbar-thumb scrollbar-track'>
         <Formik
         initialValues={{
           fullName: '',
@@ -81,9 +81,9 @@ const Register = () => {
             
             <lable className='text-tuna-900 font-semibold'>Gender</lable><br/>                        
             <div className='flex justify-between'>
-              <Field name="gender" type="radio" value="male"/>Male
-              <Field name="gender" type="radio" value="female"/>Female
-              <Field name="gender" type="radio" value="others"/>Others
+              <div><Field name="gender" type="radio" value="male"/>Male</div>
+              <div><Field name="gender" type="radio" value="female"/>Female</div>
+              <div><Field name="gender" type="radio" value="others"/>Others</div>
             </div>
             {errors.gender && touched.gender ? <div>{errors.gender}</div> : null}<br/>
 
@@ -91,7 +91,7 @@ const Register = () => {
             <Field name="password" type="password" className='bg-transparent text-tuna-950 border-b-2 border-tuna-400 focus:border-tuna-950 outline-none text-base p-1'/>
             {errors.password && touched.password ? <div className='text-satinLinen-400'>{errors.password}</div> : null}<br/><br/>
             
-            <button type="submit" className='w-full mb-2 py-2 border-2 border-tuna-600 bg-tuna-600 text-tuna-100 font-semibold rounded-md opacity-80 hover:opacity-100'>Submit</button>
+            <button type="submit" className='w-full mb-2 py-2 bg-celery-500 text-tuna-800 font-semibold rounded-md opacity-80 hover:opacity-100'>Submit</button>
           </Form>
         )}
       </Formik>

@@ -32,7 +32,7 @@ const Login = () => {
 			const result = await response.json();
 			dispatch(setUserDetails(result))
       if(isLoggedIn) {
-        router.push('./homePage')
+        router.push('./home')
       } 
 		} catch (error) {
 			console.error("Error posting data:", error);
@@ -44,15 +44,15 @@ const Login = () => {
     <div className='flex m-10 mb-4 	bg-center rounded-xl bg-tuna-900 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-satinLinen-500' >
       <div className='flex justify-center w-1/2 border-r-2 border-tuna-200'>
         <Formik
-        initialValues={{
-          phoneNumber: '',
-          password: '',
-        }}
-        validationSchema={LoginSchema}
-        onSubmit={values => {
-          loginUser(values);
-        }}
-      >
+          initialValues={{
+            phoneNumber: '',
+            password: '',
+          }}
+          validationSchema={LoginSchema}
+          onSubmit={values => {
+            loginUser(values);
+          }}
+        >
         {({ errors, touched }) => (
           <Form className='m-16'>
             <h1 className='text-center text-5xl font-semibold p-3 text-tuna-950'>
@@ -61,10 +61,12 @@ const Login = () => {
            <lable className='text-tuna-900 font-semibold'>Phone Number</lable><br/>
             <Field name="phoneNumber" type="text" className='bg-transparent text-tuna-950 border-b-2 border-tuna-400 focus:border-tuna-950 outline-none text-xl p-1'/>
             {errors.phoneNumber && touched.phoneNumber ? <div className='text-satinLinen-400'>{errors.phoneNumber}</div> : null}<br/><br/>
+
             <lable className='text-tuna-900 font-semibold'>Password</lable><br/>
             <Field name="password" type="password" className='bg-transparent text-tuna-950 border-b-2 border-tuna-400 focus:border-tuna-950 outline-none text-xl p-1'/>
             {errors.password && touched.password ? <div className='text-satinLinen-400'>{errors.password}</div> : null}<br/><br/>
-            <button type="submit" className='w-full py-2 border-2 border-tuna-600 bg-tuna-600 text-tuna-100 font-semibold rounded-md opacity-80 hover:opacity-100'>
+            
+            <button type="submit" className='w-full py-2  bg-celery-500 text-tuna-800 font-semibold rounded-md opacity-80 hover:opacity-100'>
               Log In
             </button>
           </Form>
