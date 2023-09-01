@@ -2,6 +2,9 @@ import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import Link  from 'next/link';
+import { useDispatch, useSelector } from 'react-redux'
+import { useRouter } from 'next/router';
+import { newUserDetails } from '../../redux/reducerSlices/userSlice'
 import Image from 'next/image';
  
 const SignupSchema = Yup.object().shape({
@@ -26,13 +29,27 @@ const SignupSchema = Yup.object().shape({
 });
  
 const Register = () => {
+  const dispatch = useDispatch()
+  const router = useRouter()
+  const {isLoggedIn} = useSelector((state)=> state.user)
 
   const registerNewUser = async (values) => {
-    await fetch('http://localhost:8080/registers', 
+    try{
+    const response = await fetch('http://localhost:8080/registers', 
     { method: 'POST',
         body: JSON.stringify(values),
         headers: { 'Content-Type': 'application/json' },
+        
     })
+
+    const result = await response.json();
+			dispatch(newUserDetails(result))
+      if(isLoggedIn) {
+        router.push('./home')
+      } 
+    } catch (error) {
+			console.error("Error posting data:", error);
+		}
 }
 
   return (

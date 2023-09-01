@@ -23,7 +23,7 @@
 - [ ] User profile page 
 - [ ] Transaction history (side bar)
 - [ ] Save [Important transaction saves]
-- [ ] Setting Page 
+- [x] Setting Page 
 - [ ] Electricity/Topup page(optional)
  
 ## Theme color

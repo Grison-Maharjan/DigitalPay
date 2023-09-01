@@ -18,6 +18,14 @@ const UserSlice = createSlice({
             userDetails: actions.payload.userDetails,
         }
     },
+    newUserDetails: (state, actions) => {
+        return{
+            ...state,
+            token: actions.payload.token,
+            isLoggedIn: true,
+            userDetails: actions.payload.userDetails,
+        }
+    },
 
     // updatedUserDetails: (state, actions) => {
     //     return {
@@ -32,5 +40,5 @@ const UserSlice = createSlice({
  }
 });
  
-export const {setUserDetails, handleLogout} = UserSlice.actions;
+export const {setUserDetails, newUserDetails, handleLogout} = UserSlice.actions;
 export default UserSlice.reducer

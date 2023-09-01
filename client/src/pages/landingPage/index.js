@@ -7,7 +7,8 @@ import { useRouter } from 'next/router'
 const frontPage = () => {
     const router = useRouter()
 
-    return (<>
+    return (
+    <>
     <div className="bg-cover bg-center w-full h-screen fixed" style={{ backgroundImage: `url('/LandingBg.png')` }}>
       <header className='bg-transparent'>
         <nav className='flex justify-between content-center bg-tuna-300 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-20 m-3'>

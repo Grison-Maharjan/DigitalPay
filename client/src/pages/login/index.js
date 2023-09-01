@@ -60,11 +60,11 @@ const Login = () => {
             </h1><br/>
            <lable className='text-tuna-900 font-semibold'>Phone Number</lable><br/>
             <Field name="phoneNumber" type="text" className='bg-transparent text-tuna-950 border-b-2 border-tuna-400 focus:border-tuna-950 outline-none text-xl p-1'/>
-            {errors.phoneNumber && touched.phoneNumber ? <div className='text-satinLinen-400'>{errors.phoneNumber}</div> : null}<br/><br/>
+            {errors.phoneNumber && touched.phoneNumber ? <div className='text-satinLinen-700'>{errors.phoneNumber}</div> : null}<br/><br/>
 
             <lable className='text-tuna-900 font-semibold'>Password</lable><br/>
             <Field name="password" type="password" className='bg-transparent text-tuna-950 border-b-2 border-tuna-400 focus:border-tuna-950 outline-none text-xl p-1'/>
-            {errors.password && touched.password ? <div className='text-satinLinen-400'>{errors.password}</div> : null}<br/><br/>
+            {errors.password && touched.password ? <div className='text-satinLinen-700'>{errors.password}</div> : null}<br/><br/>
             
             <button type="submit" className='w-full py-2  bg-celery-500 text-tuna-800 font-semibold rounded-md opacity-80 hover:opacity-100'>
               Log In

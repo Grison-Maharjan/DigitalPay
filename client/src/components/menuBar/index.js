@@ -21,17 +21,21 @@ export default function menuBar(){
     <>
     <div className='flex flex-col py-6 mx-4 h-4/5'>
         <button className='m-3 p-3 bg-tuna-300 hover:bg-satinLinen-300 rounded-2xl'
-         onClick={()=> router.push('/home')}
+            onClick={()=> router.push('/home')}
         >
             Home
         </button>
         <button className='m-3 p-3 bg-tuna-300 hover:bg-satinLinen-300 rounded-2xl'
-                onClick={()=> router.push('/profile')}
+            onClick={()=> router.push('/profile')}
         >
             Profile
         </button>
         <button className='m-3 p-3 bg-tuna-300 hover:bg-satinLinen-300 rounded-2xl'>Save</button>
-        <button className='m-3 p-3 bg-tuna-300 hover:bg-satinLinen-300 rounded-2xl'>Setting</button>
+        <button className='m-3 p-3 bg-tuna-300 hover:bg-satinLinen-300 rounded-2xl'
+            onClick={()=> router.push('/setting')}
+        >
+            Setting
+        </button>
     </div>
     <div className='flex flex-col justify-center h-1/5 mx-4'>
         <button onClick={handleOpen}

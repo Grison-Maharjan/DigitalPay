@@ -24,7 +24,7 @@ const userProfile = () => {
     return(
     <>
     {/* Whole Page */}
-    <div className='flex h-screen bg-violet-700'>
+    <div className='flex h-screen'>
 
         {/* First section */}
         <div className='flex flex-col bg-red-400 h-400 justify-between w-1/6 m-4 rounded-3xl shadow-2xl'>
@@ -95,7 +95,7 @@ const userProfile = () => {
 
                 <button type="submit" className='w-40 py-2 border-2 border-tuna-600 bg-tuna-600 text-tuna-100 font-semibold rounded-md opacity-80 hover:opacity-100'>Save</button>
                 </Form>
-        )}
+                )}
             </Formik>
         </div>
         
