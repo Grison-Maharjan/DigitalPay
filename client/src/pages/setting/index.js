@@ -2,36 +2,50 @@ import React from "react";
 import MenuBar from '@/components/menuBar';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch, useSelector } from 'react-redux'
+import { addUserDetails, setUserDetails } from "@/redux/reducerSlices/userSlice";
 
 const MPINSchema = Yup.object().shape({
     MPIN: Yup.number()
-    .min(4, 'Must be 4 digits code!')
-    .max(4, 'Must be 4 digits code!')
     .required('Required!!!'),
 });
 
 const setting = () => {
+    const dispatch = useDispatch()
+    const userId = useSelector((state) => state.user.userDetails)?._id;
+    const userMPIN = async (values) => {
+        try{
+        const response = await fetch(`http://localhost:8080/userMPIN/${userId}`, 
+        { method: 'PUT',
+            body: JSON.stringify(values),
+            headers: { 'Content-Type': 'application/json' }, 
+        })
+
+        const result = await response.json();
+        dispatch(setUserDetails(result))
+
+        } catch (error) {
+            console.error("Error posting data:", error);
+        }
+    }
+
     return (
     <div className='flex h-screen bg-tuna-200'>
 
     <div className='flex flex-col justify-between w-1/6 m-4 mr-2 rounded-xl bg-transparent bg-clip-padding backdrop-filter bg-opacity-10 shadow-2xl hover:border border-satinLinen-500'>
-            <MenuBar/>
+        <MenuBar/>
     </div>
 
     <div className='flex flex-col justify-between w-5/6 m-4 ml-2 rounded-xl bg-transparent bg-clip-padding backdrop-filter bg-opacity-10 shadow-2xl hover:border border-satinLinen-500'>
         <div className='m-4'>
             <Formik
                 initialValues={{
-                    fullName: '', 
-                    phoneNumber: '',
-                    password: '',
-                    gender: '',
-                    email: '',
+                    MPIN: '',
                 }}
                 validationSchema={MPINSchema}
 
                 onSubmit={values => {
-                    updateUser(values)
+                    userMPIN(values)
                 }}
             >
                 {({ errors, touched }) => (

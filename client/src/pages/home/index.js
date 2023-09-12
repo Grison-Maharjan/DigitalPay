@@ -1,5 +1,6 @@
 import React,{useState, useSelector} from 'react';
 import MenuBar from '@/components/menuBar';
+import MidHome from '@/components/midHome';
 
 const home = () => {  
 
@@ -14,8 +15,8 @@ const home = () => {
         </div>
         
         {/* Middle section */}
-        <div className='flex flex-col justify-between w-4/6 m-4 rounded-xl bg-transparent bg-clip-padding backdrop-filter bg-opacity-10 shadow-2xl hover:border border-satinLinen-500'>
-
+        <div className='flex flex-col justify-between w-4/6'>
+            <MidHome/>
         </div>
 
         {/* Last section */}

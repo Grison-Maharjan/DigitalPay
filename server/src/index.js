@@ -8,8 +8,6 @@ app.use(cors())
 app.use(express.json())
 app.use(UsersRoutes)
 
-
-
 connectDb()
 const port = process.env.PORT
 

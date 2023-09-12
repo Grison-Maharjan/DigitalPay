@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
     email: String, 
     phoneNumber: String,
     gender: String,
-    email: String,
+    MPIN: String,
     password: String,
     balance: {type: Number, default: '10000'}
 });
