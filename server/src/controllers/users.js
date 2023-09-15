@@ -30,6 +30,7 @@ const userLogin = async (req, res) => {
       );
       res.status(201).json({
         success: true,
+        userDetails: data,
         token,
       });
     } else {

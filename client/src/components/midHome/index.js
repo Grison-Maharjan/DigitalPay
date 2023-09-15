@@ -3,8 +3,9 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import IMAGE from "next/image";
-import PermPhoneMsgRoundedIcon from '@mui/icons-material/PermPhoneMsgRounded';
-import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
+import PermPhoneMsgRoundedIcon from "@mui/icons-material/PermPhoneMsgRounded";
+import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
+import { ArrowForwardIos } from "@mui/icons-material";
 
 const TransactionSchema = Yup.object().shape({
   phoneNumber: Yup.string().required("Required!!!"),
@@ -12,12 +13,25 @@ const TransactionSchema = Yup.object().shape({
   purpose: Yup.string().required("Required!!!"),
 });
 
-export default function midHome() {
+const midHome = () => {
+  const { userDetails } = useSelector((state) => state.user);
+  const [userInfo, setUserInfo] = useState([]);
+  try {
+    const fetchUserData = async () => {
+      const response = await fetch(
+        "http:localhost:8080/users/" + userDetails._id
+      );
+      const result = await response.json();
+      setUserInfo(result);
+    };
+  } catch (error) {
+    console.log(error);
+  }
   return (
     <div className="flex flex-col justify-between h-screen max-h-screen m-4">
       <div className="p-4 rounded-xl bg-transparent bg-clip-padding backdrop-filter bg-opacity-10 shadow-2xl hover:border border-satinLinen-500">
-        <h1 className="text-2xl">Grison Maharjan</h1>
-        <h2 className="text-xl">Balance: NRs.10,000</h2>
+        <h1 className="text-2xl">{userDetails.fullName}</h1>
+        <h2 className="text-xl">Balance: NRs.{userDetails.balance}</h2>
       </div>
 
       <div className="flex my-2">
@@ -33,7 +47,9 @@ export default function midHome() {
           >
             {({ errors, touched }) => (
               <Form className="">
-                <h1 className="font-bold text-center text-xl text-celery-600 pb-2">Transfer Money</h1>
+                <h1 className="font-bold text-center text-xl text-celery-600 pb-2">
+                  Transfer Money
+                </h1>
                 <lable className="text-tuna-900 font-semibold">
                   Phone Number
                 </lable>
@@ -103,7 +119,9 @@ export default function midHome() {
           >
             {({ errors, touched }) => (
               <Form className="">
-                <h1 className="font-bold text-center text-xl text-celery-600 pb-2">Request Money</h1>
+                <h1 className="font-bold text-center text-xl text-celery-600 pb-2">
+                  Request Money
+                </h1>
                 <lable className="text-tuna-900 font-semibold">
                   Phone Number
                 </lable>
@@ -169,7 +187,7 @@ export default function midHome() {
             src="/DigitalPay-logo.png"
             width={50}
             height={50}
-            alt="DigitalPay" 
+            alt="DigitalPay"
             className=""
           />
           <h1 className="font-bold">Digital Pay</h1>
@@ -177,11 +195,16 @@ export default function midHome() {
 
         <div>
           <h1>Contact Us</h1>
-          <p><PermPhoneMsgRoundedIcon/> +977 9810101010</p>
-          <p><EmailRoundedIcon/> digitalPay123@gmail.com</p>
+          <p>
+            <PermPhoneMsgRoundedIcon /> +977 9810101010
+          </p>
+          <p>
+            <EmailRoundedIcon /> digitalPay123@gmail.com
+          </p>
         </div>
-
       </div>
     </div>
   );
-}
+};
+
+export default midHome

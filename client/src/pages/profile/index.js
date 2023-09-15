@@ -4,6 +4,7 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { useSelector } from "react-redux";
 import NewPassword from "@/components/newPassword";
+import { loadGetInitialProps } from "next/dist/shared/lib/utils";
 
 const SignupSchema = Yup.object().shape({
   fullName: Yup.string()
@@ -21,21 +22,22 @@ const SignupSchema = Yup.object().shape({
 });
 
 const userProfile = () => {
-  // const { userDetails } = useSelector((state) => state.user);
+  const { userDetails } = useSelector((state) => state.user);
 
-  // const [userInfo, setUserInfo] = useState([]);
+  const [userInfo, setUserInfo] = useState([]);
 
-  // const fetchUserInfo = async () => {
-  //   const response = await fetch(
-  //     "http://localhost:8080/users/" + userDetails._id ,
-  //   );
+  try {
+    const fetchUserInfo = async () => {
+      const response = await fetch(
+        "http://localhost:8080/users/" + userDetails._id
+      );
 
-  //   const result = await response.json();
-  //   setUserInfo(result.data);
-  // };
-  // useEffect(() => {
-  //   fetchUserInfo();
-  // }, []);
+      const result = await response.json();
+      setUserInfo(result.data);
+    };
+  } catch (err) {
+    console.log(err);
+  }
 
   return (
     <>
@@ -47,7 +49,7 @@ const userProfile = () => {
         </div>
 
         <div className="bg-red-400 w-5/6 m-4 rounded-3xl shadow-2xl">
-          {/* {userDetails.fullName} */}
+          {userDetails.fullName}
         </div>
       </div>
     </>
