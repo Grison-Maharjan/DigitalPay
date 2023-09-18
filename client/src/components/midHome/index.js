@@ -35,7 +35,7 @@ const midHome = () => {
       </div>
 
       <div className="flex my-2">
-        <div className="w-1/2 mr-2 p-4 rounded-xl bg-transparent bg-clip-padding backdrop-filter bg-opacity-10 shadow-2xl hover:border border-satinLinen-500">
+        <div className="h-96 max-h-96 overflow-y-scroll scrollbar-thin scrollbar-thumb scrollbar-track w-1/2 mr-2 p-4 rounded-xl bg-transparent bg-clip-padding backdrop-filter bg-opacity-10 shadow-2xl hover:border border-satinLinen-500">
           <Formik
             initialValues={{
               phoneNumber: "",
@@ -107,7 +107,7 @@ const midHome = () => {
             )}
           </Formik>
         </div>
-        <div className="w-1/2 ml-2 p-4 rounded-xl bg-transparent bg-clip-padding backdrop-filter bg-opacity-10 shadow-2xl hover:border border-satinLinen-500">
+        <div className="h-96 max-h-96 overflow-y-scroll scrollbar-thin scrollbar-thumb scrollbar-track w-1/2 ml-2 p-4 rounded-xl bg-transparent bg-clip-padding backdrop-filter bg-opacity-10 shadow-2xl hover:border border-satinLinen-500">
           <Formik
             initialValues={{
               phoneNumber: "",

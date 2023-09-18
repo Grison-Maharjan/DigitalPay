@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import { setUserDetailsUserDetails } from "../../redux/reducerSlices/userSlice";
+import { setUserDetails} from "../../redux/reducerSlices/userSlice";
 import Image from "next/image";
 
 const SignupSchema = Yup.object().shape({

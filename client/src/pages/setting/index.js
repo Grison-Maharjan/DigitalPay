@@ -4,6 +4,7 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux'
 import { addUserDetails, setUserDetails } from "@/redux/reducerSlices/userSlice";
+import { useRouter } from "next/router";
 
 const MPINSchema = Yup.object().shape({
     MPIN: Yup.number()
@@ -12,25 +13,37 @@ const MPINSchema = Yup.object().shape({
 
 const setting = () => {
     const dispatch = useDispatch()
-    const userId = useSelector((state) => state.user.userDetails)?._id;
-    const userMPIN = async (values) => {
-        try{
-        const response = await fetch(`http://localhost:8080/userMPIN/${userId}`, 
-        { method: 'PUT',
-            body: JSON.stringify(values),
-            headers: { 'Content-Type': 'application/json' }, 
-        })
+    const router = useRouter()
+    const { userDetails } = useSelector((state) => state.user);
 
-        const result = await response.json();
-        dispatch(setUserDetails(result))
+    // const userMPIN = async (values) => {
+    //     try{
+    //     const response = await fetch('http://localhost:8080/users', 
+    //     { method: 'POST',
+    //         body: JSON.stringify(values),
+    //         headers: { 'Content-Type': 'application/json' }, 
+    //     })
 
-        } catch (error) {
-            console.error("Error posting data:", error);
-        }
-    }
+    //     const result = await response.json();
+    //     dispatch(setUserDetails(result))
+
+    //     } catch (error) {
+    //         console.error("Error posting data:", error);
+    //     }
+    // }
+
+    // const deleterUser = async()=> {
+    //     try{
+    //     await fetch('http://localhost:8080/user/' + userDetails._id , 
+    //     { method: 'DELETE',
+    //     })
+    //     } catch (error) {
+    //         console.error("Error posting data:", error);
+    //     }
+    // }
 
     return (
-    <div className='flex h-screen bg-tuna-200'>
+    <div className='flex h-screen bg-rumSwizzle-200'>
 
     <div className='flex flex-col justify-between w-1/6 m-4 mr-2 rounded-xl bg-transparent bg-clip-padding backdrop-filter bg-opacity-10 shadow-2xl hover:border border-satinLinen-500'>
         <MenuBar/>
@@ -60,7 +73,7 @@ const setting = () => {
             </Formik><br/>
             <h1 className='font-bold text-tuna-950'>Account deletion</h1>
             <p className='w-1/2 text-tuna-950 font-semibold'>We understand that you may be considering deleting your account. Please be aware of the consequences. Do you still want to delete your account?</p>
-            <button type="submit" className='w-32 my-2 py-2 bg-satinLinen-400 text-tuna-950 font-semibold rounded-md hover:bg-satinLinen-500'>Delete</button>
+            <button type="submit" className='w-32 my-2 py-2 bg-satinLinen-400 text-tuna-950 font-semibold rounded-md hover:bg-satinLinen-500' onSubmit={deleterUser()}>Delete</button>
         </div>    
     </div>
 

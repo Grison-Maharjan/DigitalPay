@@ -47,21 +47,19 @@ const userLogin = async (req, res) => {
   }
 };
 
-const userMPIN = async (req, res) => {
-  const userId = req.params.userId;
-  const hashMPIN = await bcrypt.hash(req.body.MPIN, 10);
-  req.body.MPIN = hashMPIN;
-  const addedMPIN = await Users.findByIdAndUpdate(userId, {
-    MPIN: req.body.MPIN,
-  });
-
-  if (addedMPIN) {
-    res.status(200).json({
-      success: true,
-      message: "MPIN added successfully!",
-    });
-  }
-};
+// const userMPIN = async (req, res) => {
+//   const userId = req.params.id;
+//   const hashMPIN = await bcrypt.hash(req.body.MPIN, 10);
+//   req.body.MPIN = hashMPIN;
+//   const user = await Users.findById(userId);
+//   if (user) {
+//     res.status(200).json({
+//       success: true,
+//       message: "MPIN added successfully!",
+//       MPIN: req.body.MPIN
+//     });
+//   }
+// };
 
 const getSpecificUser = async (req, res) => {
   try {
@@ -120,8 +118,7 @@ const getAllUser = async (req, res) => {
 // const deleteSpecificUser = async(req,res)=>{
 // const data = await Users.findByIdAndDelete(req.params.id)
 //     res.json({
-//         msg: 'success',
-//         data: data
+//         msg: 'Account deleted successsfully!',
 //     })
 // }
 
