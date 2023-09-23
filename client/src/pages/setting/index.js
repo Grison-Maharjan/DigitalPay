@@ -16,7 +16,7 @@ const setting = () => {
     const router = useRouter()
     const { userDetails } = useSelector((state) => state.user);
 
-    // const userMPIN = async (values) => {
+   ` // const userMPIN = async (values) => {
     //     try{
     //     const response = await fetch('http://localhost:8080/users', 
     //     { method: 'POST',
@@ -41,7 +41,7 @@ const setting = () => {
     //         console.error("Error posting data:", error);
     //     }
     // }
-
+`
     return (
     <div className='flex h-screen bg-rumSwizzle-200'>
 
@@ -65,7 +65,7 @@ const setting = () => {
                  <Form className='mb-4'>
                     <p className='text-tuna-950 font-semibold'>The MPIN is a secure code used for authentication and authorization in digital transactions.</p>
                     <lable className='font-bold text-tuna-950'>MPIN</lable><br/>
-                        <Field name="MPIN" type="text" className='bg-transparent text-tuna-900 border-b-2 border-tuna-300 focus:border-tuna-600 outline-none text-base p-1'/>
+                        <Field name="MPIN" type="text" value={userDetails.MPIN} className='bg-transparent text-tuna-900 border-b-2 border-tuna-300 focus:border-tuna-600 outline-none text-base p-1'/>
                         {errors.MPIN && touched.MPIN ? <div className='text-satinLinen-700'>{errors.MPIN}</div> : null}<br/><br/>
                         <button type="submit" className='w-32 py-2 bg-celery-500 text-tuna-100 font-semibold rounded-md hover:bg-celery-600'>Save</button>
                  </Form>
@@ -73,7 +73,7 @@ const setting = () => {
             </Formik><br/>
             <h1 className='font-bold text-tuna-950'>Account deletion</h1>
             <p className='w-1/2 text-tuna-950 font-semibold'>We understand that you may be considering deleting your account. Please be aware of the consequences. Do you still want to delete your account?</p>
-            <button type="submit" className='w-32 my-2 py-2 bg-satinLinen-400 text-tuna-950 font-semibold rounded-md hover:bg-satinLinen-500' onSubmit={deleterUser()}>Delete</button>
+            <button type="submit" className='w-32 my-2 py-2 bg-satinLinen-400 text-tuna-950 font-semibold rounded-md hover:bg-satinLinen-500' >Delete</button>
         </div>    
     </div>
 

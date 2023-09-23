@@ -49,7 +49,7 @@ const userProfile = () => {
         </div>
 
         <div className="bg-red-400 w-5/6 m-4 rounded-3xl shadow-2xl">
-          {userDetails.fullName}
+          
         </div>
       </div>
     </>

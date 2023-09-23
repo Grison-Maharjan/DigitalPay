@@ -12,4 +12,4 @@ router.get('/users', getAllUser)
 // router.delete('/user/:id', deleteSpecificUser)
 
 
-module.exports = router 
+module.exports = router   

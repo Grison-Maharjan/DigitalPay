@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import IMAGE from "next/image";
 import PermPhoneMsgRoundedIcon from "@mui/icons-material/PermPhoneMsgRounded";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
-import { ArrowForwardIos } from "@mui/icons-material";
+import { io } from "socket.io-client";
+const URL = "http://localhost:8080";
+export const socket = io(URL);
 
 const TransactionSchema = Yup.object().shape({
   phoneNumber: Yup.string().required("Required!!!"),
@@ -27,6 +29,11 @@ const midHome = () => {
   } catch (error) {
     console.log(error);
   }
+
+  useEffect(() => {
+    socket.on("connection");
+  }, []);
+
   return (
     <div className="flex flex-col justify-between h-screen max-h-screen m-4">
       <div className="p-4 rounded-xl bg-transparent bg-clip-padding backdrop-filter bg-opacity-10 shadow-2xl hover:border border-satinLinen-500">
@@ -172,6 +179,7 @@ const midHome = () => {
                 <button
                   type="submit"
                   className="w-full py-2  bg-celery-500 text-tuna-800 font-semibold rounded-md opacity-80 hover:opacity-100"
+                  onClick={()=>socket.emit('hello', 'hi')}
                 >
                   Request
                 </button>
@@ -207,4 +215,4 @@ const midHome = () => {
   );
 };
 
-export default midHome
+export default midHome;

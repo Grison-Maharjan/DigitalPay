@@ -1,8 +1,16 @@
-import React,{useState, useSelector} from 'react';
+import React,{useState, useEffect} from 'react';
 import MenuBar from '@/components/menuBar';
 import MidHome from '@/components/midHome';
+import { io } from 'socket.io-client';
+const URL = 'http://localhost:8080';
+export const socket = io(URL);
+
 
 const home = () => {  
+
+    useEffect(() => {
+        socket.on('connection');
+    },[])
 
     return(
     <>
