@@ -6,7 +6,7 @@
 - [x] Log Out 
 - [x] Token provided
 - [ ] Transaction history
-- [ ] MPIN 
+- [x] MPIN 
 - [ ] Receiving/Sending money
 - [ ] Service charges(5%) while sending money
 - [ ] Load money 
@@ -19,10 +19,10 @@
 - [x] Landing page
 - [x] Log In page (user already exist)
 - [x] Sign Up page (new user account creation)
-- [ ] User home page
+- [x] User home page
 - [ ] User profile page 
-- [ ] Transaction history (side bar)
-- [ ] Save [Important transaction saves]
+- [ ] Transaction history
+- [ ] Requests(side bar)
 - [x] Setting Page 
 - [ ] Electricity/Topup page(optional)
  
