@@ -12,6 +12,8 @@ const registerNewUser = async (req, res) => {
     // password  encrypt
     const hashPassword = await bcrypt.hash(req.body.password, 10);
     req.body.password = hashPassword;
+    const hashMPIN = await bcrypt.hash(req.body.MPIN, 10);
+    req.body.MPIN = hashMPIN;
     await Users.create(req.body);
     res.status(201).json({
       msg: "New user added successfully!",

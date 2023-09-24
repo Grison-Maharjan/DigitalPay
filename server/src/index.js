@@ -20,7 +20,7 @@ app.use(UsersRoutes);
 connectDb();
 const port = process.env.PORT;
 
-io.on("connection", (socket) => {
+io.on("request", (socket) => {
   socket.on('hello', (hello) => {
     console.log(hello)
   })

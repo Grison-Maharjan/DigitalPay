@@ -30,7 +30,7 @@ export default function menuBar(){
         >
             Profile
         </button>
-        <button className='m-3 p-3 bg-tuna-300 hover:bg-satinLinen-300 rounded-2xl'>Requests</button>
+        <button className='m-3 p-3 bg-tuna-300 hover:bg-satinLinen-300 rounded-2xl'>Transactions</button>
         <button className='m-3 p-3 bg-tuna-300 hover:bg-satinLinen-300 rounded-2xl'
             onClick={()=> router.push('/setting')}
         >

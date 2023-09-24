@@ -21,6 +21,10 @@ const SignupSchema = Yup.object().shape({
     .max(15, "Too Long!")
     .required("Required!!!"),
   gender: Yup.string().required("Required!!!"),
+  MPIN: Yup.string()
+    .min(4, "Must be 4 digit!")
+    .max(4, "Must be 4 digit!!")
+    .required("Required!!!"),
   password: Yup.string()
     .min(7, "Too Short!")
     .max(20, "Too Long!")
@@ -155,6 +159,19 @@ const Register = () => {
                 {errors.gender && touched.gender ? (
                   <div>{errors.gender}</div>
                 ) : null}
+                <br />
+
+                <lable className="text-tuna-900 font-semibold">MPIN</lable>
+                <br />
+                <Field
+                  name="MPIN"
+                  type="MPIN"
+                  className="bg-transparent text-tuna-950 border-b-2 border-tuna-400 focus:border-tuna-950 outline-none text-base p-1"
+                />
+                {errors.MPIN && touched.MPIN ? (
+                  <div className="text-satinLinen-400">{errors.MPIN}</div>
+                ) : null}
+                <br />
                 <br />
 
                 <lable className="text-tuna-900 font-semibold">Password</lable>

@@ -12,7 +12,6 @@ export const socket = io(URL);
 const TransactionSchema = Yup.object().shape({
   phoneNumber: Yup.string().required("Required!!!"),
   amount: Yup.string().required("Required!!!"),
-  purpose: Yup.string().required("Required!!!"),
 });
 
 const midHome = () => {
@@ -31,13 +30,13 @@ const midHome = () => {
   }
 
   useEffect(() => {
-    socket.on("connection");
+    socket.on("request");
   }, []);
 
   return (
     <div className="flex flex-col justify-between h-screen max-h-screen m-4">
       <div className="p-4 rounded-xl bg-transparent bg-clip-padding backdrop-filter bg-opacity-10 shadow-2xl hover:border border-satinLinen-500">
-        <h1 className="text-2xl">{userDetails.fullName}</h1>
+        <h1 className="text-2xl ">{userDetails.fullName}</h1>
         <h2 className="text-xl">Balance: NRs.{userDetails.balance}</h2>
       </div>
 
@@ -47,7 +46,6 @@ const midHome = () => {
             initialValues={{
               phoneNumber: "",
               amount: "",
-              purpose: "",
             }}
             validationSchema={TransactionSchema}
             onSubmit={(values) => {}}
@@ -89,21 +87,7 @@ const midHome = () => {
 
                 <br />
                 <br />
-
-                <lable className="text-tuna-900 font-semibold">Purpose</lable>
-                <br />
-                <Field
-                  name="purpose"
-                  type="text"
-                  placeholder="Enter your purpose"
-                  className="bg-transparent text-tuna-950 border-b-2 border-tuna-400 focus:border-tuna-950 outline-none text-xl p-1"
-                />
-                {errors.purpose && touched.purpose ? (
-                  <div className="text-satinLinen-700">{errors.purpose}</div>
-                ) : null}
-                <br />
-                <br />
-
+                
                 <button
                   type="submit"
                   className="w-full py-2  bg-celery-500 text-tuna-800 font-semibold rounded-md opacity-80 hover:opacity-100"
@@ -119,7 +103,6 @@ const midHome = () => {
             initialValues={{
               phoneNumber: "",
               amount: "",
-              purpose: "",
             }}
             validationSchema={TransactionSchema}
             onSubmit={(values) => {}}
@@ -159,20 +142,6 @@ const midHome = () => {
                   <div className="text-satinLinen-700">{errors.amount}</div>
                 ) : null}
 
-                <br />
-                <br />
-
-                <lable className="text-tuna-900 font-semibold">Purpose</lable>
-                <br />
-                <Field
-                  name="purpose"
-                  type="text"
-                  placeholder="Enter your purpose"
-                  className="bg-transparent text-tuna-950 border-b-2 border-tuna-400 focus:border-tuna-950 outline-none text-xl p-1"
-                />
-                {errors.purpose && touched.purpose ? (
-                  <div className="text-satinLinen-700">{errors.purpose}</div>
-                ) : null}
                 <br />
                 <br />
 
