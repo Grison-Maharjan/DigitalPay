@@ -117,11 +117,11 @@ const getAllUser = async (req, res) => {
 //     }
 // }
 
-// const deleteSpecificUser = async(req,res)=>{
-// const data = await Users.findByIdAndDelete(req.params.id)
-//     res.json({
-//         msg: 'Account deleted successsfully!',
-//     })
-// }
+const deleteSpecificUser = async(req,res)=>{
+const data = await Users.findOneAndDelete(req.params.id)
+    res.json({
+        msg: 'Account deleted successsfully!',
+    })
+}
 
-module.exports = { registerNewUser, userLogin, getSpecificUser, getAllUser};
+module.exports = { registerNewUser, userLogin, getSpecificUser, getAllUser, deleteSpecificUser};

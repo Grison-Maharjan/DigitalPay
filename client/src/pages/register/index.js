@@ -83,6 +83,7 @@ const Register = () => {
               email: "",
               phoneNumber: "",
               gender: "",
+              MPIN: "",
               password: "",
             }}
             validationSchema={SignupSchema}
@@ -204,7 +205,6 @@ const Register = () => {
           href="/login"
           className="mx-2 rounded bg-tuna-900 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-satinLinen-500"
         >
-          {" "}
           Log In
         </Link>
       </h1>

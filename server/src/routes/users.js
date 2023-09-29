@@ -9,7 +9,7 @@ router.post('/logins', userLogin)
 router.get('/users/:id', getSpecificUser)
 router.get('/users', getAllUser)
 // router.put('/changePassword/:userId', changePassword)
-// router.delete('/user/:id', deleteSpecificUser)
+router.delete('/users/:id', deleteSpecificUser)
 
 
 module.exports = router   

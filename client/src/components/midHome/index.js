@@ -10,7 +10,7 @@ const URL = "http://localhost:8080";
 export const socket = io(URL);
 
 const TransactionSchema = Yup.object().shape({
-  phoneNumber: Yup.string().required("Required!!!"),
+  receiverId: Yup.string().required("Required!!!"),
   amount: Yup.string().required("Required!!!"),
 });
 
@@ -30,8 +30,26 @@ const midHome = () => {
   }
 
   useEffect(() => {
-    socket.on("request");
+    socket.on('connection');
   }, []);
+
+  const handleRideRequest = ()=>{
+    socket.emit('request', {senderId: userDetails.phoneNumber, receiverId, amount} )
+   }
+
+  const request = async (values) => {
+    try {
+      const response = await fetch("http://localhost:8080/", {
+        method: "POST",
+        body: JSON.stringify(values),
+        headers: { "Content-Type": "application/json" },
+      });
+
+      const result = await response.json();
+    } catch (error) {
+      console.error("Error posting data:", error);
+    }
+  };
 
   return (
     <div className="flex flex-col justify-between h-screen max-h-screen m-4">
@@ -44,7 +62,7 @@ const midHome = () => {
         <div className="h-96 max-h-96 overflow-y-scroll scrollbar-thin scrollbar-thumb scrollbar-track w-1/2 mr-2 p-4 rounded-xl bg-transparent bg-clip-padding backdrop-filter bg-opacity-10 shadow-2xl hover:border border-satinLinen-500">
           <Formik
             initialValues={{
-              phoneNumber: "",
+              receiverId: "",
               amount: "",
             }}
             validationSchema={TransactionSchema}
@@ -60,14 +78,14 @@ const midHome = () => {
                 </lable>
                 <br />
                 <Field
-                  name="phoneNumber"
+                  name="receiverId"
                   type="text"
                   placeholder="Enter receiver number"
                   className="bg-transparent text-tuna-950 border-b-2 border-tuna-400 focus:border-tuna-950 outline-none text-xl p-1"
                 />
-                {errors.phoneNumber && touched.phoneNumber ? (
+                {errors.receiverId && touched.receiverId ? (
                   <div className="text-satinLinen-700">
-                    {errors.phoneNumber}
+                    {errors.receiverId}
                   </div>
                 ) : null}
                 <br />
@@ -87,7 +105,7 @@ const midHome = () => {
 
                 <br />
                 <br />
-                
+
                 <button
                   type="submit"
                   className="w-full py-2  bg-celery-500 text-tuna-800 font-semibold rounded-md opacity-80 hover:opacity-100"
@@ -101,7 +119,7 @@ const midHome = () => {
         <div className="h-96 max-h-96 overflow-y-scroll scrollbar-thin scrollbar-thumb scrollbar-track w-1/2 ml-2 p-4 rounded-xl bg-transparent bg-clip-padding backdrop-filter bg-opacity-10 shadow-2xl hover:border border-satinLinen-500">
           <Formik
             initialValues={{
-              phoneNumber: "",
+              receiverId: "",
               amount: "",
             }}
             validationSchema={TransactionSchema}
@@ -117,14 +135,14 @@ const midHome = () => {
                 </lable>
                 <br />
                 <Field
-                  name="phoneNumber"
+                  name="receiverId"
                   type="text"
                   placeholder="Enter lenders number"
                   className="bg-transparent text-tuna-950 border-b-2 border-tuna-400 focus:border-tuna-950 outline-none text-xl p-1"
                 />
-                {errors.phoneNumber && touched.phoneNumber ? (
+                {errors.receiverId && touched.receiverId ? (
                   <div className="text-satinLinen-700">
-                    {errors.phoneNumber}
+                    {errors.receiverId}
                   </div>
                 ) : null}
                 <br />
@@ -148,7 +166,7 @@ const midHome = () => {
                 <button
                   type="submit"
                   className="w-full py-2  bg-celery-500 text-tuna-800 font-semibold rounded-md opacity-80 hover:opacity-100"
-                  onClick={()=>socket.emit('hello', 'hi')}
+                  onClick={() => socket.emit("request", "hi")}
                 >
                   Request
                 </button>

@@ -1,6 +1,7 @@
 const express = require("express");
 const UsersRoutes = require("./routes/users");
 const connectDb = require("./db/connection");
+const Requests = require("./models/transaction")
 const cors = require("cors");
 const app = express();
 const http = require("http");
@@ -20,9 +21,11 @@ app.use(UsersRoutes);
 connectDb();
 const port = process.env.PORT;
 
-io.on("request", (socket) => {
-  socket.on('hello', (hello) => {
-    console.log(hello)
+io.on('connection', async(socket) => {
+  socket.on('request', async(hello) => {
+    await Requests.create(request)
+		const data = await Requests.find()
+		io.emit('request', data)
   })
 });
 
