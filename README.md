@@ -9,10 +9,8 @@
 - [x] MPIN 
 - [ ] Receiving/Sending money
 - [ ] Service charges(5%) while sending money
-- [ ] Load money 
-- [ ] Electricity/Topup (optional)
 - [ ] Update users details
-- [ ] Delete user account
+- [x] Delete user account
 
 
 ## Pages
@@ -24,7 +22,7 @@
 - [ ] Transaction history
 - [ ] Requests(side bar)
 - [x] Setting Page 
-- [ ] Electricity/Topup page(optional)
+ 
  
 ## Theme color
 
